@@ -84,6 +84,12 @@ export const comboboxVariants = tv({
         root: "pointer-events-none cursor-not-allowed opacity-50",
       },
     },
+    // Set per row. Only the label fades, so the selected check stays clear
+    muted: {
+      true: {
+        itemLabel: "opacity-50 in-data-[highlighted]:opacity-100",
+      },
+    },
   },
 });
 
