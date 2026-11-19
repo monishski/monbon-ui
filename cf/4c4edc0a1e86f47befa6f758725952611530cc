@@ -1,0 +1,41 @@
+.changeset/add-list.md
+  s_efb560940e1d21::t_48668b1197cca9 1-5
+src/components/primitives/list/list.tsx
+  s_efb560940e1d21::t_c92336834adbd7 1,6-8,10,23-41,52-64
+  s_efb560940e1d21::t_38862feb297022 2-5,11-13,15-22,42-51,65-70
+  h_8087c96937daf8 9,14
+  s_efb560940e1d21::t_eb0191033fb121 71-81
+src/components/primitives/list/index.ts
+  s_efb560940e1d21::t_cd0d2b4c02ee5b 1-2
+src/components/primitives/index.ts
+  s_efb560940e1d21::t_53d9877a5f3f72 15
+src/components/primitives/list/list.variants.ts
+  s_efb560940e1d21::t_f307d811cd9157 12-18,20-30,33-35
+  h_8087c96937daf8 19
+  s_efb560940e1d21::t_4ab3c4090cd062 1-11,31-32,36
+stories/primitives/list.stories.tsx
+  s_efb560940e1d21::t_5b710bccd5e7bd 27-39,41-44
+  s_efb560940e1d21::t_a7adeebeb2bfce 1-26,40,45-110,119-169
+  s_efb560940e1d21::t_3f478e279a4018 111-118
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cf4c4edc0a1e86f47befa6f758725952611530cc",
+  "prompts": {},
+  "humans": {
+    "h_8087c96937daf8": {
+      "author": "Monish Vassantrai <m.vassantrai@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_efb560940e1d21": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "89a003a2-44e6-4c1a-b27c-ac286b0a9150",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Monish Vassantrai <m.vassantrai@gmail.com>"
+    }
+  }
+}
