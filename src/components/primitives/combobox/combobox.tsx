@@ -39,6 +39,9 @@ export type ComboboxProps<Item> = {
   label: string;
   icon?: ReactNode;
   renderItem?: (item: Item) => ReactNode;
+  // Fades a row that matters less, e.g. one with nothing behind it. It comes
+  // back while highlighted
+  isItemMuted?: (item: Item) => boolean;
   // Content of a placeholder row while more rows load, shaped like an item
   renderItemSkeleton?: (index: number) => ReactNode;
   placeholder?: string;
@@ -73,6 +76,7 @@ export function Combobox<Item>({
   label,
   icon,
   renderItem,
+  isItemMuted,
   renderItemSkeleton = (index) => (
     <Skeleton className={index % 2 ? "h-3.5 w-1/2" : "h-3.5 w-2/3"} />
   ),
@@ -329,7 +333,11 @@ export function Combobox<Item>({
                         className={item()}
                         style={{ transform }}
                       >
-                        <Flex grow justify="start" className={itemLabel()}>
+                        <Flex
+                          grow
+                          justify="start"
+                          className={itemLabel({ muted: isItemMuted?.(rowItem) })}
+                        >
                           {renderItem ? (
                             renderItem(rowItem)
                           ) : (

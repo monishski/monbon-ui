@@ -297,6 +297,16 @@ export const SettingsMenu: Story = {
   },
 };
 
+// Categories without spend sort last and fade, without being hidden
+export const MutedItems: Story = {
+  args: {
+    options: [...categories].sort(
+      (a, b) => (spendById[b.id] ?? 0) - (spendById[a.id] ?? 0)
+    ),
+    isItemMuted: ({ id }) => !spendById[id],
+  },
+};
+
 export const SelectionWarning: Story = {
   args: {
     defaultValue: [categories[1], categories[9]],

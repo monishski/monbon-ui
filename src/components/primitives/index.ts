@@ -12,6 +12,7 @@ export * from "./field";
 export * from "./flex";
 export * from "./input";
 export * from "./label";
+export * from "./list";
 export * from "./menu";
 export * from "./popover";
 export * from "./scroll-area";
