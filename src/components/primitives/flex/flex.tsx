@@ -1,39 +1,47 @@
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
+import { forwardRef } from "react";
 
+import type { PolymorphicProps } from "../../../types/utils";
 import { getVariantProps } from "../../../utils/tailwind-variants";
 import { flexVariants, type FlexVariantProps } from "./flex.variants";
 
-export type FlexProps = ComponentPropsWithoutRef<"div"> & FlexVariantProps;
+// A span inside a button or link, which only allows phrasing content
+export type FlexProps = PolymorphicProps<"div" | "span"> & FlexVariantProps;
 
-export const Flex = forwardRef<HTMLDivElement, FlexProps>(
-  ({ children, className, ...props }, ref) => {
+export const Flex = forwardRef<HTMLDivElement & HTMLSpanElement, FlexProps>(
+  ({ children, className, as = "div", ...props }, ref) => {
     const { variantProps, componentProps } = getVariantProps(
       props,
       flexVariants.variantKeys
     );
 
+    const Component = as;
+
     return (
-      <div
+      <Component
         ref={ref}
         className={flexVariants({ ...variantProps, className })}
         {...componentProps}
       >
         {children}
-      </div>
+      </Component>
     );
   }
 );
 
 Flex.displayName = "Flex";
 
-export const Row = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
-  return <Flex ref={ref} direction="row" {...props} />;
-});
+export const Row = forwardRef<HTMLDivElement & HTMLSpanElement, FlexProps>(
+  (props, ref) => {
+    return <Flex ref={ref} direction="row" {...props} />;
+  }
+);
 
 Row.displayName = "Row";
 
-export const Stack = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
-  return <Flex ref={ref} direction="col" {...props} />;
-});
+export const Stack = forwardRef<HTMLDivElement & HTMLSpanElement, FlexProps>(
+  (props, ref) => {
+    return <Flex ref={ref} direction="col" {...props} />;
+  }
+);
 
 Stack.displayName = "Stack";
